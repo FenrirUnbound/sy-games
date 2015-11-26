@@ -10,10 +10,10 @@ def main():
 
 def get_app():
     application = webapp2.WSGIApplication([
-            ('/', index.MainHandler),
             routes.PathPrefixRoute('/api/v1', [
                 webapp2.Route('/status', status.StatusHandler)
-            ])
+            ]),
+            ('/.*', index.MainHandler),
         ], debug=True)
     return application
 

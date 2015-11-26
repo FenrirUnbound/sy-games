@@ -5,15 +5,20 @@
   "main": "index.js",
   "scripts": {
     "gulp": "NODE_ENV=production ./node_modules/.bin/gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/gulp"
   },
   "author": "Darren M <aeneascorrupt@gmail.com>",
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "history": "^1.13.1",
+    "hoek": "^3.0.4",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "react-router": "^1.0.0",
+    "rsvp": "^3.1.0",
+    "unirest": "^0.4.2"
   },
   "devDependencies": {
     "browserify": "^12.0.1",

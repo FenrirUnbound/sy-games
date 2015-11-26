@@ -1,6 +1,9 @@
+var GameList = require('../lib/game-list');
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Header = require('./header');
+var Router = require('react-router');
+var Header = require('../lib/header');
+var history = require('history/lib/createBrowserHistory')();
 
 var Main = React.createClass({
   displayName: 'Main',
@@ -11,7 +14,12 @@ var Main = React.createClass({
           React.createElement(Header, null)
         ),
         React.createElement('div', null,
-          React.createElement('h1', null, 'Game List')
+          React.createElement(Router.Router, {history: history},
+            React.createElement(Router.Route, {component: GameList},
+              React.createElement(Router.Route, {path: '/tripletriad'}),
+              React.createElement(Router.Route, {path: '/'})
+            )
+          )
         )
       )
     );

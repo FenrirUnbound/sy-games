@@ -12,6 +12,10 @@ handlers:
   static_dir: views/style
   login: required
   secure: always
+- url: /images
+  static_dir: views/images
+  login: required
+  secure: always
 - url: /.*
   script: main.app
   login: required

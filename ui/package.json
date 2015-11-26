@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "gulp": "./node_modules/.bin/gulp",
+    "gulp": "NODE_ENV=production ./node_modules/.bin/gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Darren M <aeneascorrupt@gmail.com>",
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "react": "^0.14.3"
+    "react": "^0.14.3",
+    "react-bootstrap": "^0.28.1",
+    "react-dom": "^0.14.3"
   },
   "devDependencies": {
     "browserify": "^12.0.1",

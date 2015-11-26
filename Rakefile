@@ -5,10 +5,16 @@ def execute(command)
   puts value
 end
 
-task :deploy do |t|
+task :deploy, [:verbose] do |t, args|
   command = 'appcfg.py -A sy-games update .'
-  value = %x( #{command} )
-  puts value
+
+  if args.verbose
+    puts 'Enabling verbosity'
+    command += ' -v'
+  end
+
+  execute(command)
+
 end
 
 task :local do |t|

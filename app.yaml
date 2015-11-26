@@ -8,3 +8,14 @@ handlers:
   script: main.app
   login: required
   secure: always
+
+skip_files:
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
+- ^ui$
+- LICENSE
+- README.md
+- Rakefile

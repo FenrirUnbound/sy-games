@@ -1,20 +1,10 @@
-import json
+import handler
+import os
 import webapp2
 
-class MainHandler(webapp2.RequestHandler):
-    def _send_response(self, status=200, content=''):
-        self.response.set_status(status)
+from google.appengine.ext.webapp import template
 
-        if len(content) > 0:
-            self.response.headers['Content-Type'] = 'application/json'
-            self.response.write(json.dumps(content))
-        else:
-            del self.response.headers['Content-Type']
-
-    def get(self):
-        content = {
-            'status': 'OK'
-        }
-        self.response.set_status(200)
-        self.response.headers['Content-Type'] = 'application/json'
-        self.response.write(json.dumps(content))
+class MainHandler(handler.Handler):
+    def _get(self):
+        path = os.path.join(os.path.dirname(__file__), '../views/main.html')
+        self.response.out.write(template.render(path, {}))

@@ -4,6 +4,14 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /scripts
+  static_dir: views/scripts
+  login: required
+  secure: always
+- url: /style
+  static_dir: views/style
+  login: required
+  secure: always
 - url: /.*
   script: main.app
   login: required

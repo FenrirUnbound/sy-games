@@ -2,6 +2,7 @@
 *.o
 *.a
 *.so
+*.pyc
 
 # Folders
 _obj
@@ -22,6 +23,9 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# Node dependencies
+**/node_modules/*
 
 # whitelist
 models/user.py

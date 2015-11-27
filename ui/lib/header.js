@@ -16,7 +16,7 @@ var Header = React.createClass({
     return (
       React.createElement(Bootstrap.Navbar, {inverse: true},
         React.createElement(Bootstrap.Navbar.Header, null,
-          React.createElement(Bootstrap.Navbar.Brand, null, 'SY Games'),
+          React.createElement(Bootstrap.Navbar.Brand, null, 'Squirtle Yakuza Games'),
           React.createElement(Bootstrap.Navbar.Toggle, null)
         ),
         React.createElement(Bootstrap.Navbar.Collapse, null,

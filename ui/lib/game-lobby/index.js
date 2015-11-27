@@ -1,15 +1,23 @@
 var React = require('react');
+var Bootstrap = require('react-bootstrap');
 
-var GameList = React.createClass({
-  displayName: 'GameList',
+var GameLobby = React.createClass({
+  displayName: 'GameLobby',
   getInitialState: function () {
     return {
       games: null
     };
   },
+  createGame: function () {
+    console.log('createGame');
+  },
   fetchGameData: function () {
     var me = this;
-    console.log(me.props.location.pathname);
+    var currentGameType = me.props.location.pathname;
+
+    if (currentGameType === '/') {
+      return;
+    }
 
     fetch('/api/v1/status', {
       credentials: 'include'
@@ -32,7 +40,10 @@ var GameList = React.createClass({
     });
   },
   componentDidMount: function () {
-    this.fetchGameData();
+    var currentGameType = this.props.location.pathname.substring(1);
+    if (currentGameType && currentGameType.length > 0) {
+      this.fetchGameData();
+    }
   },
   render: function () {
     var content;
@@ -51,10 +62,11 @@ var GameList = React.createClass({
     return (
       React.createElement('div', null,
         React.createElement('h1', null, 'Game List'),
+        React.createElement(Bootstrap.Button, {block: true, className: 'center-block', onClick: this.createGame, style: {width: '50%'}}, 'Create Game'),
         React.createElement('div', null, content)
       )
     );
   }
 });
 
-module.exports = GameList;
+module.exports = GameLobby;

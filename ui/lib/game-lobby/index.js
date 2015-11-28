@@ -37,6 +37,9 @@ var GameLobby = React.createClass({
     })
     .catch(function (error) {
       console.error(error);
+      me.setState({
+        games: []
+      });
     });
   },
   componentDidMount: function () {
@@ -62,7 +65,12 @@ var GameLobby = React.createClass({
     return (
       React.createElement('div', null,
         React.createElement('h1', null, 'Game List'),
-        React.createElement(Bootstrap.Button, {block: true, className: 'center-block', onClick: this.createGame, style: {width: '50%'}}, 'Create Game'),
+        React.createElement(Bootstrap.Button, {
+          block: true,
+          className: 'center-block',
+          onClick: this.createGame,
+          style: {width: '50%'}
+        }, 'Create Game'),
         React.createElement('div', null, content)
       )
     );
